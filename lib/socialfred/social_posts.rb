@@ -33,17 +33,24 @@ module Socialfred
       JSON.parse(response.body)
     end
 
-    def create(publish_at: Time.now, text:, images: [])
-      publish_at = Time.parse(publish_at.to_s).iso8601
-      response = conn.post(ENDPOINT, {social_post: {published_at: publish_at, text: text, images: images}})
+    def create(publish_at: nil, text:, images: nil)
+      publish_at = Time.parse(publish_at.to_s).iso8601 if publish_at
+      parameters = {social_post: {published_at: publish_at, text: text, images: images}.compact}
+      response = conn.post(ENDPOINT, parameters)
 
       raise Socialfred::Error unless response.status == 200
 
       JSON.parse(response.body)
     end
 
-    def update
+    def update(social_post_id, publish_at: nil, text:, images: nil)
+      publish_at = Time.parse(publish_at.to_s).iso8601 if publish_at
+      parameters = {social_post: {published_at: publish_at, text: text, images: images}.compact}
+      response = conn.put(ENDPOINT + "/#{social_post_id}", parameters)
 
+      raise Socialfred::Error unless response.status == 200
+
+      JSON.parse(response.body)
     end
 
     def destroy(social_post_id)
