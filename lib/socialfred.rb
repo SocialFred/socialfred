@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "socialfred/version"
+require 'socialfred/version'
 
 require 'socialfred/api'
 require 'socialfred/social_posts'
