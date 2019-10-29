@@ -10,12 +10,12 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Social Fred API Client}
   spec.description   = %q{Social Fred API Client: schedule social posts to multiple social networks}
-  spec.homepage      = "https://github.com/SocialFred/socialfred"
+  spec.homepage      = "https://github.com/socialfred/socialfred"
   spec.license       = "MIT"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/SocialFred/socialfred"
-  spec.metadata["changelog_uri"] = "https://github.com/SocialFred/socialfred"
+  spec.metadata["source_code_uri"] = "https://github.com/socialfred/socialfred"
+  spec.metadata["changelog_uri"] = "https://github.com/socialfred/socialfred"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
