@@ -1,3 +1,5 @@
+require 'time'
+
 module Socialfred
   class SocialPosts
     attr_reader :api_key
@@ -31,7 +33,8 @@ module Socialfred
       JSON.parse(response.body)
     end
 
-    def create(publish_at:, text:, images: [])
+    def create(publish_at: Time.now, text:, images: [])
+      publish_at = Time.parse(publish_at.to_s).iso8601
       response = conn.post(ENDPOINT, {social_post: {published_at: publish_at, text: text, images: images}})
 
       raise Socialfred::Error unless response.status == 200
