@@ -13,8 +13,8 @@ module Socialfred
       @api_key = api_key
     end
 
-    def index
-      response = conn.get(ENDPOINT) do |req|
+    def index(page: 1, per_page: 10)
+      response = conn.get(ENDPOINT, page: page, per_page: per_page) do |req|
         req.headers['Content-Type'] = 'application/json'
       end
 
