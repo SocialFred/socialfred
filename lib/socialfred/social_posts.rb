@@ -35,7 +35,7 @@ module Socialfred
 
     def create(publish_at: nil, text:, images: nil)
       publish_at = Time.parse(publish_at.to_s).iso8601 if publish_at
-      parameters = {social_post: {published_at: publish_at, text: text, images: images}.compact}
+      parameters = { social_post: { published_at: publish_at, text: text, images: images }.compact }
       response = conn.post(ENDPOINT, parameters)
 
       raise Socialfred::Error unless response.status == 200
@@ -45,7 +45,7 @@ module Socialfred
 
     def update(social_post_id, publish_at: nil, text:, images: nil)
       publish_at = Time.parse(publish_at.to_s).iso8601 if publish_at
-      parameters = {social_post: {published_at: publish_at, text: text, images: images}.compact}
+      parameters = { social_post: { published_at: publish_at, text: text, images: images }.compact }
       response = conn.put(ENDPOINT + "/#{social_post_id}", parameters)
 
       raise Socialfred::Error unless response.status == 200
@@ -65,7 +65,6 @@ module Socialfred
 
     def conn
       @conn ||= Faraday.new(url: API_URL) do |faraday|
-
         faraday.request :multipart
         faraday.request :url_encoded
         faraday.adapter Faraday.default_adapter
