@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'vcr'
 require 'socialfred'
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/support/vcr_cassettes'
+  config.hook_into :faraday
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

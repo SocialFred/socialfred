@@ -13,7 +13,7 @@ module Socialfred
       @api_url = api_url
     end
 
-    def index(page: 1, per_page: 10)
+    def all(page: 1, per_page: 10)
       response = conn.get(ENDPOINT, page: page, per_page: per_page)
 
       raise Socialfred::Error unless response.status == 200
