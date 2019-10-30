@@ -3,7 +3,6 @@
 require 'socialfred/version'
 
 require 'socialfred/api'
-require 'socialfred/social_posts'
 
 require 'json'
 

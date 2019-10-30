@@ -1,3 +1,9 @@
+require:
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-thread_safety
+
 Style/Documentation:
   Enabled: false
 
