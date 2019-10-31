@@ -93,7 +93,7 @@ Response:
 #### Destroy a social post
 
 ```ruby
-social_posts.destroy(99)
+api.social_posts.destroy(99)
 ```
 
 Response:
