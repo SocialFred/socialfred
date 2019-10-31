@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: http://dev.socialfred.com:3000/api/social_posts/99
+    body:
+      encoding: UTF-8
+      string: social_post%5Btext%5D=another+text
+    headers:
+      Api-Key:
+      - test_api_key
+      User-Agent:
+      - Faraday v0.17.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      x-download-options:
+      - noopen
+      x-permitted-cross-domain-policies:
+      - none
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      content-type:
+      - application/json; charset=utf-8
+      etag:
+      - W/"4e72e5f78e6efcfde403d723c07ea7f6"
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - 4a7695b1-7e65-4758-808b-8b404d5663c1
+      x-runtime:
+      - '0.044899'
+      connection:
+      - close
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"99","type":"social_post","attributes":{"text":"another
+        text","created_at":"2019-10-30T23:54:12.147+01:00","updated_at":"2019-10-31T00:01:58.128+01:00","status":"new","published_at":"2045-06-01T12:05:00.000+01:00"}}}'
+    http_version: 
+  recorded_at: Wed, 30 Oct 2019 23:01:58 GMT
+recorded_with: VCR 5.0.0
