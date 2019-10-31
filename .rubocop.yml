@@ -1,0 +1,14 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - '**/*.gemspec'

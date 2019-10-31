@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://dev.socialfred.com:3000/api/social_posts?page=1&per_page=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Api-Key:
+      - test_api_key
+      User-Agent:
+      - Faraday v0.17.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      x-download-options:
+      - noopen
+      x-permitted-cross-domain-policies:
+      - none
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      content-type:
+      - application/json; charset=utf-8
+      etag:
+      - W/"a5604cf74091a7f478a00e007fdd592c"
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - c959d46b-bf3a-43dc-9e66-a8238c81b48c
+      x-runtime:
+      - '0.021715'
+      connection:
+      - close
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"98","type":"social_post","attributes":{"text":"test1","created_at":"2019-10-30T20:54:14.960+01:00","updated_at":"2019-10-30T20:54:15.011+01:00","status":"new","published_at":"2019-10-30T20:59:14.000+01:00"}},{"id":"95","type":"social_post","attributes":{"text":"test2","created_at":"2019-10-29T22:46:35.857+01:00","updated_at":"2019-10-29T23:46:41.645+01:00","status":"published","published_at":"2019-10-29T23:46:35.000+01:00"}}],"meta":{"total":51},"links":{"first":"http://dev.socialfred.com:3000/api/social_posts?page=1\u0026per_page=2","last":"http://dev.socialfred.com:3000/api/social_posts?page=26\u0026per_page=2","next":"http://dev.socialfred.com:3000/api/social_posts?page=2\u0026per_page=2"}}'
+    http_version: 
+  recorded_at: Wed, 30 Oct 2019 22:19:12 GMT
+recorded_with: VCR 5.0.0

@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://dev.socialfred.com:3000/api/social_posts
+    body:
+      encoding: UTF-8
+      string: social_post%5Bpublished_at%5D=2045-06-01T13%3A05%3A00%2B02%3A00&social_post%5Btext%5D=example+text
+    headers:
+      Api-Key:
+      - test_api_key
+      User-Agent:
+      - Faraday v0.17.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      x-download-options:
+      - noopen
+      x-permitted-cross-domain-policies:
+      - none
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      content-type:
+      - application/json; charset=utf-8
+      etag:
+      - W/"4ab865b1df551293160e1d4290121a87"
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - aa863a3d-b5c0-435a-87d7-6401b4a662b2
+      x-runtime:
+      - '0.107380'
+      connection:
+      - close
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"99","type":"social_post","attributes":{"text":"example text","created_at":"2019-10-30T23:54:12.147+01:00","updated_at":"2019-10-30T23:54:12.192+01:00","status":"new","published_at":"2045-06-01T12:05:00.000+01:00"}}}'
+    http_version: 
+  recorded_at: Wed, 30 Oct 2019 22:54:12 GMT
+recorded_with: VCR 5.0.0

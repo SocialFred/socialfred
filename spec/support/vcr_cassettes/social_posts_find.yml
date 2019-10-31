@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://dev.socialfred.com:3000/api/social_posts/95
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Api-Key:
+      - test_api_key
+      User-Agent:
+      - Faraday v0.17.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      x-download-options:
+      - noopen
+      x-permitted-cross-domain-policies:
+      - none
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      content-type:
+      - application/json; charset=utf-8
+      etag:
+      - W/"8b9eef0fec5964743290da586681109e"
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - f18f4780-9484-4d96-9e94-77432ac356b0
+      x-runtime:
+      - '0.227448'
+      connection:
+      - close
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"95","type":"social_post","attributes":{"text":"test2","created_at":"2019-10-29T22:46:35.857+01:00","updated_at":"2019-10-29T23:46:41.645+01:00","status":"published","published_at":"2019-10-29T23:46:35.000+01:00"}}}'
+    http_version: 
+  recorded_at: Wed, 30 Oct 2019 22:41:45 GMT
+recorded_with: VCR 5.0.0
