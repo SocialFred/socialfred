@@ -37,6 +37,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '0.74'
   spec.add_development_dependency 'rubocop-performance', '~> 1.5'
   spec.add_development_dependency 'rubocop-rspec', '~> 1.36'
-  spec.add_development_dependency 'rubocop-thread_safety', '~> 0.3'
   spec.add_development_dependency 'vcr', '~> 5.0'
 end

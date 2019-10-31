@@ -1,7 +1,6 @@
 require:
   - rubocop-performance
   - rubocop-rspec
-  - rubocop-thread_safety
 
 Style/Documentation:
   Enabled: false
