@@ -28,7 +28,7 @@ api = Socialfred::Api.new(api_key)
 
 ### Social Posts
 
-#### Create a Social Post
+#### Create a social post
 
 ```ruby
 api.social_posts.create(
