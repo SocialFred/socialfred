@@ -32,7 +32,10 @@ module Socialfred
     def create(publish_at: nil, text:, images: nil, options: nil)
       publish_at = Time.parse(publish_at.to_s).iso8601 if publish_at
       parameters = { social_post: { published_at: publish_at, text: text, images: images, options: options }.compact }
-      response = conn.post(ENDPOINT, parameters)
+      response = conn.post(ENDPOINT) do |req|
+        req.headers[:content_type] = 'application/json'
+        req.body = JSON.generate(parameters)
+      end
 
       raise Socialfred::Error unless response.status == 200
 
@@ -42,7 +45,10 @@ module Socialfred
     def update(social_post_id, publish_at: nil, text:, images: nil, options: nil)
       publish_at = Time.parse(publish_at.to_s).iso8601 if publish_at
       parameters = { social_post: { published_at: publish_at, text: text, images: images, options: options }.compact }
-      response = conn.put(ENDPOINT + "/#{social_post_id}", parameters)
+      response = conn.put(ENDPOINT + "/#{social_post_id}") do |req|
+        req.headers[:content_type] = 'application/json'
+        req.body = JSON.generate(parameters)
+      end
 
       raise Socialfred::Error unless response.status == 200
 
@@ -61,8 +67,6 @@ module Socialfred
 
     def conn
       @conn ||= Faraday.new(url: api_url) do |faraday|
-        faraday.request :multipart
-        faraday.request :url_encoded
         faraday.adapter Faraday.default_adapter
         faraday.headers['Api-Key'] = api_key
       end
