@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'faraday'
 require 'socialfred/social_posts'
-require 'socialfred/requester'
 
 module Socialfred
   class Api
