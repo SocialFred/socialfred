@@ -70,10 +70,10 @@ module Socialfred
     private
 
     def check_images(images)
-      return Socialfred::Error('images must be array') unless images.is_a?(Array)
+      raise Socialfred::Error('images must be array') unless images.is_a?(Array)
       return if images.all? { |image| image.key?(:data) && image.key?(:filename) && image.key?(:content_type) }
 
-      return Socialfred::Error(
+      raise Socialfred::Error(
         'images must contain the following parameters: data (base64 encoded image), filename and content_type'
       )
     end
