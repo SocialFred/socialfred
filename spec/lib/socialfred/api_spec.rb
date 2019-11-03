@@ -2,7 +2,7 @@
 
 RSpec.describe Socialfred::Api do
   let(:api_key) { 'example_api_key' }
-  let(:default_api_url) { 'https://socialfred.com/api/' }
+  let(:default_api_url) { 'https://app.socialfred.com/api/' }
 
   describe '#initialize' do
     context 'when initialized without api_url' do

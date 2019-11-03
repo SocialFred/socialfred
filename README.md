@@ -31,6 +31,8 @@ api = Socialfred::Api.new(api_key)
 #### Create a social post
 
 ```ruby
+image1 = {data: Base64.encode64(image.download), filename: 'image.jpeg', content_type: 'image/jpeg'}
+# ...
 api.social_posts.create(
   publish_at: Time.now,
   text: "example text",
