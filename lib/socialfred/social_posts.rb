@@ -42,7 +42,7 @@ module Socialfred
       JSON.parse(response.body)
     end
 
-    def update(social_post_id, publish_at: nil, text:, images: nil, options: nil)
+    def update(social_post_id, publish_at: nil, text: nil, images: nil, options: nil)
       check_images(images) if images
 
       publish_at = Time.parse(publish_at.to_s).iso8601 if publish_at
