@@ -34,8 +34,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rubocop', '0.74'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.5'
-  spec.add_development_dependency 'rubocop-rspec', '~> 1.36'
+  spec.add_development_dependency 'rubocop', '~> 0.86.0'
+  spec.add_development_dependency 'rubocop-performance', '~> 1.6.1'
+  spec.add_development_dependency 'rubocop-rspec', '~> 1.40.0'
   spec.add_development_dependency 'vcr', '~> 5.0'
 end
