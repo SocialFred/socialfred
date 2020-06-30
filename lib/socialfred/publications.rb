@@ -4,10 +4,10 @@ require 'socialfred/requester'
 require 'time'
 
 module Socialfred
-  class SocialPosts
+  class Publications
     attr_reader :api_key, :api_url
 
-    ENDPOINT = 'social_posts'
+    ENDPOINT = 'publications'
 
     def initialize(api_key, api_url:)
       @api_key = api_key
@@ -22,8 +22,8 @@ module Socialfred
       JSON.parse(response.body)
     end
 
-    def find(social_post_id)
-      response = requester.get(ENDPOINT + "/#{social_post_id}")
+    def find(publication_id)
+      response = requester.get(ENDPOINT + "/#{publication_id}")
 
       raise Socialfred::Error unless response.status == 200
 
@@ -34,28 +34,28 @@ module Socialfred
       check_images(images) if images
 
       publish_at = Time.parse(publish_at.to_s).iso8601 if publish_at
-      parameters = { social_post: { published_at: publish_at, text: text, images: images, options: options }.compact }
+      parameters = { publication: { published_at: publish_at, text: text, images: images, options: options }.compact }
       response = requester.post(ENDPOINT, parameters)
 
-      raise Socialfred::Error unless response.status == 200
+      raise Socialfred::Error, response.body unless response.status == 200
 
       JSON.parse(response.body)
     end
 
-    def update(social_post_id, publish_at: nil, text: nil, images: nil, options: nil)
+    def update(publication_id, publish_at: nil, text: nil, images: nil, options: nil)
       check_images(images) if images
 
       publish_at = Time.parse(publish_at.to_s).iso8601 if publish_at
-      parameters = { social_post: { published_at: publish_at, text: text, images: images, options: options }.compact }
-      response = requester.put(ENDPOINT + "/#{social_post_id}", parameters)
+      parameters = { publication: { published_at: publish_at, text: text, images: images, options: options }.compact }
+      response = requester.put(ENDPOINT + "/#{publication_id}", parameters)
 
       raise Socialfred::Error unless response.status == 200
 
       JSON.parse(response.body)
     end
 
-    def destroy(social_post_id)
-      response = requester.delete(ENDPOINT + "/#{social_post_id}")
+    def destroy(publication_id)
+      response = requester.delete(ENDPOINT + "/#{publication_id}")
 
       raise Socialfred::Error unless response.status == 200
 

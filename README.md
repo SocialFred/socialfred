@@ -33,7 +33,7 @@ api = Socialfred::Api.new(api_key)
 ```ruby
 image1 = {data: Base64.encode64(image.download), filename: 'image.jpeg', content_type: 'image/jpeg'}
 # ...
-api.social_posts.create(
+api.publications.create(
   publish_at: Time.now,
   text: "example text",
   images: [image1, image2],
@@ -56,7 +56,7 @@ Response:
 {
   'data' => {
     'id' => '99',
-    'type' => 'social_post',
+    'type' => 'publication',
     'attributes' => {
       'text' => 'example text',
       'created_at' => '2019-10-30T23:54:12.147+01:00',
@@ -71,7 +71,7 @@ Response:
 #### Update a social post
 
 ```ruby
-api.social_posts.update(99, text: 'another text')
+api.publications.update(99, text: 'another text')
 ```
 
 Response:
@@ -80,7 +80,7 @@ Response:
 {
   'data' => {
     'id' => '99',
-    'type' => 'social_post',
+    'type' => 'publication',
     'attributes' => {
       'text' => 'another text',
       'created_at' => '2019-10-30T23:54:12.147+01:00',
@@ -95,7 +95,7 @@ Response:
 #### Destroy a social post
 
 ```ruby
-api.social_posts.destroy(99)
+api.publications.destroy(99)
 ```
 
 Response:
@@ -104,7 +104,7 @@ Response:
 {
   'data' => {
     'id' => '99',
-    'type' => 'social_post',
+    'type' => 'publication',
     'attributes' => {
       'text' => 'another text',
       'created_at' => '2019-10-30T23:54:12.147+01:00',
@@ -119,7 +119,7 @@ Response:
 #### List all social posts
 
 ```ruby
-api.social_posts.all(page: 1, per_page: 10)
+api.publications.all(page: 1, per_page: 10)
 ```
 
 Response:
@@ -129,7 +129,7 @@ Response:
   'data' => [
     {
       'id' => '98',
-      'type' => 'social_post',
+      'type' => 'publication',
       'attributes' => {
         'text' => 'test1',
         'created_at' => '2019-10-30T20:54:14.960+01:00',
@@ -141,7 +141,7 @@ Response:
     # ...
     {
       'id' => '95',
-      'type' => 'social_post',
+      'type' => 'publication',
       'attributes' => {
         'text' => 'test2',
         'created_at' => '2019-10-29T22:46:35.857+01:00',
@@ -152,9 +152,9 @@ Response:
     }
   ],
   'links' => {
-    'first' => 'https://socialfred.com/api/social_posts?page=1&per_page=10',
-    'last' => 'https://socialfred.com/api/social_posts?page=26&per_page=10',
-    'next' => 'https://socialfred.com/api/social_posts?page=2&per_page=10'
+    'first' => 'https://api.socialfred.com/publications?page=1&per_page=10',
+    'last' => 'https://api.socialfred.com/publications?page=26&per_page=10',
+    'next' => 'https://api.socialfred.com/publications?page=2&per_page=10'
   },
   'meta' => { 'total' => 51 }
 }
@@ -163,7 +163,7 @@ Response:
 #### Find one social post
 
 ```ruby
-api.social_posts.find(95)
+api.publications.find(95)
 ```
 
 Response:
@@ -172,7 +172,7 @@ Response:
 {
   'data' => {
     'id' => '95',
-    'type' => 'social_post',
+    'type' => 'publication',
     'attributes' => {
       'text' => 'test2',
       'created_at' => '2019-10-29T22:46:35.857+01:00',

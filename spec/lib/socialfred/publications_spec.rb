@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-RSpec.describe Socialfred::SocialPosts do
-  subject(:social_posts) { described_class.new(api_key, api_url: api_url) }
+RSpec.describe Socialfred::Publications do
+  subject(:publications) { described_class.new(api_key, api_url: api_url) }
 
-  let(:api_url) { 'http://dev.socialfred.com:3000/api' }
+  let(:api_url) { 'http://dev.socialfred.com:3000' }
   let(:api_key) { 'test_api_key' }
 
   describe '#all' do
@@ -12,7 +12,7 @@ RSpec.describe Socialfred::SocialPosts do
         'data' => [
           {
             'id' => '98',
-            'type' => 'social_post',
+            'type' => 'publication',
             'attributes' => {
               'text' => 'test1',
               'created_at' => '2019-10-30T20:54:14.960+01:00',
@@ -23,7 +23,7 @@ RSpec.describe Socialfred::SocialPosts do
           },
           {
             'id' => '95',
-            'type' => 'social_post',
+            'type' => 'publication',
             'attributes' => {
               'text' => 'test2',
               'created_at' => '2019-10-29T22:46:35.857+01:00',
@@ -34,17 +34,17 @@ RSpec.describe Socialfred::SocialPosts do
           }
         ],
         'links' => {
-          'first' => 'http://dev.socialfred.com:3000/api/social_posts?page=1&per_page=2',
-          'last' => 'http://dev.socialfred.com:3000/api/social_posts?page=26&per_page=2',
-          'next' => 'http://dev.socialfred.com:3000/api/social_posts?page=2&per_page=2'
+          'first' => 'http://dev.socialfred.com:3000/publications?page=1&per_page=2',
+          'last' => 'http://dev.socialfred.com:3000/publications?page=26&per_page=2',
+          'next' => 'http://dev.socialfred.com:3000/publications?page=2&per_page=2'
         },
         'meta' => { 'total' => 51 }
       }
     end
 
     it do
-      VCR.use_cassette('social_posts_all') do
-        expect(social_posts.all(per_page: 2)).to eq(expected_result)
+      VCR.use_cassette('publications_all') do
+        expect(publications.all(per_page: 2)).to eq(expected_result)
       end
     end
   end
@@ -54,7 +54,7 @@ RSpec.describe Socialfred::SocialPosts do
       {
         'data' => {
           'id' => '95',
-          'type' => 'social_post',
+          'type' => 'publication',
           'attributes' => {
             'text' => 'test2',
             'created_at' => '2019-10-29T22:46:35.857+01:00',
@@ -67,8 +67,8 @@ RSpec.describe Socialfred::SocialPosts do
     end
 
     it do
-      VCR.use_cassette('social_posts_find') do
-        expect(social_posts.find(95)).to eq(expected_result)
+      VCR.use_cassette('publications_find') do
+        expect(publications.find(95)).to eq(expected_result)
       end
     end
   end
@@ -84,7 +84,7 @@ RSpec.describe Socialfred::SocialPosts do
       {
         'data' => {
           'id' => '99',
-          'type' => 'social_post',
+          'type' => 'publication',
           'attributes' => {
             'text' => 'example text',
             'created_at' => '2019-10-30T23:54:12.147+01:00',
@@ -97,8 +97,8 @@ RSpec.describe Socialfred::SocialPosts do
     end
 
     it do
-      VCR.use_cassette('social_posts_create') do
-        expect(social_posts.create(create_parameters)).to eq(expected_result)
+      VCR.use_cassette('publications_create') do
+        expect(publications.create(create_parameters)).to eq(expected_result)
       end
     end
   end
@@ -108,7 +108,7 @@ RSpec.describe Socialfred::SocialPosts do
       {
         'data' => {
           'id' => '99',
-          'type' => 'social_post',
+          'type' => 'publication',
           'attributes' => {
             'text' => 'another text',
             'created_at' => '2019-10-30T23:54:12.147+01:00',
@@ -121,8 +121,8 @@ RSpec.describe Socialfred::SocialPosts do
     end
 
     it do
-      VCR.use_cassette('social_posts_update') do
-        expect(social_posts.update(99, text: 'another text')).to eq(expected_result)
+      VCR.use_cassette('publications_update') do
+        expect(publications.update(99, text: 'another text')).to eq(expected_result)
       end
     end
   end
@@ -132,7 +132,7 @@ RSpec.describe Socialfred::SocialPosts do
       {
         'data' => {
           'id' => '99',
-          'type' => 'social_post',
+          'type' => 'publication',
           'attributes' => {
             'text' => 'another text',
             'created_at' => '2019-10-30T23:54:12.147+01:00',
@@ -145,8 +145,8 @@ RSpec.describe Socialfred::SocialPosts do
     end
 
     it do
-      VCR.use_cassette('social_posts_destroy') do
-        expect(social_posts.destroy(99)).to eq(expected_result)
+      VCR.use_cassette('publications_destroy') do
+        expect(publications.destroy(99)).to eq(expected_result)
       end
     end
   end
