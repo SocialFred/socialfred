@@ -17,7 +17,7 @@ module Socialfred
     def all(page: 1, per_page: 10)
       response = requester.get(ENDPOINT, page: page, per_page: per_page)
 
-      raise Socialfred::Error unless response.status == 200
+      raise Socialfred::Error, response.body unless response.status == 200
 
       JSON.parse(response.body)
     end
@@ -25,7 +25,7 @@ module Socialfred
     def find(publication_id)
       response = requester.get(ENDPOINT + "/#{publication_id}")
 
-      raise Socialfred::Error unless response.status == 200
+      raise Socialfred::Error, response.body unless response.status == 200
 
       JSON.parse(response.body)
     end
@@ -49,7 +49,7 @@ module Socialfred
       parameters = { publication: { published_at: publish_at, text: text, images: images, options: options }.compact }
       response = requester.put(ENDPOINT + "/#{publication_id}", parameters)
 
-      raise Socialfred::Error unless response.status == 200
+      raise Socialfred::Error, response.body unless response.status == 200
 
       JSON.parse(response.body)
     end
@@ -57,7 +57,7 @@ module Socialfred
     def destroy(publication_id)
       response = requester.delete(ENDPOINT + "/#{publication_id}")
 
-      raise Socialfred::Error unless response.status == 200
+      raise Socialfred::Error, response.body unless response.status == 200
 
       JSON.parse(response.body)
     end
